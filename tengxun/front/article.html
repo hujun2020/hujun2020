@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../common/jquery.min.js"></script>
+    <title> 征文活动 </title>
+</head>
+<body>
+
+<center>
+        <table>
+            <tr><td>手机号码 ： </td> <td><input  id="phone" type = "text" name = "phone" /></td></tr>
+            <tr><td>验证码 ： </td> <td><input    type="text" name = "code"  id="code"/>&nbsp;&nbsp;<input type = "button"  id="btn" value="获取验证码"  /> </td></tr>
+            <tr><td>发表文字：</td><td><textarea cols="120" rows="20" id="content" placeholder="请发表500字以内文字"></textarea></td></tr>
+            <tr><td><input type = "submit" value = "提交"  onclick="send()"/></td></tr>
+        </table>
+</center>
+
+</body>
+</html>
+<script type="text/javascript">
+    function send()
+    {
+        //验证手机号
+        var phone=$.trim($("#phone").val());
+        if(isPhoneNo(phone) == false){
+            alert("请输入11位手机号码");
+            return;
+        }
+        //验证文字
+        var content=$.trim($("#content").val());
+        if(content.length>500 || content.length<2){
+            alert("文字在500以内");
+            return;
+        }
+        var code=$.trim($("#code").val());
+        //发送请求
+        $.ajax({
+            url     : './article.php',
+            type    : 'post',
+            data    : {phone:phone,content:content,code:code},
+            dataType :"json",
+            error:function (){
+                alert("网络异常");
+            },
+            success : function (data) {
+                if (data.code == 0) {
+                    alert("参数错误");
+                } else if(data.code==1){
+                    if(confirm('恭喜您提交成功，是否参与抽奖？')){
+                        window.open("./choujiang.html");
+                    }
+                }else if(data.code==2){
+                    alert("一个手机号只能参加一次");
+                }else{
+                    alert("网络错误，请稍后重试");
+                }
+            }
+        });
+    }
+
+    // 验证手机号
+    function isPhoneNo(phone) {
+        var pattern = /^1[34578]\d{9}$/;
+        return pattern.test(phone);
+    }
+
+</script>
