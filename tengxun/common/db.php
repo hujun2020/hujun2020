@@ -1,4 +1,5 @@
 <?php
+namespace common;
 /**
  * 数据库DAO -->>> 对数据库进行操作的类
  */
@@ -38,9 +39,9 @@ class db
     {
         try {
             // 初始化执行数据库
-            $this->pdo = new PDO(self::DRIVER_CLASS, self::USERNAME, self::PASSWORD);
+            $this->pdo = new \PDO(self::DRIVER_CLASS, self::USERNAME, self::PASSWORD);
             $this->pdo->query('SET NAMES UTF8');
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         } catch (PDOException  $e) {
             throw new \Exception($e->getMessage(), 500);
         }

@@ -1,6 +1,7 @@
 <?php
-include_once '../common/validate.php';
-include_once '../common/articleModel.php';
+require '../vendor/autoload.php';
+use common\Validate;
+use common\articleModel;
 /**
  * 0  验证失败
  * 1  提交成功

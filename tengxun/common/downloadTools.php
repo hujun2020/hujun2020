@@ -1,5 +1,5 @@
 <?php
-
+namespace common;
 class downloadTools {
     protected $fileName;
     protected $columns;

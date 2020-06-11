@@ -1,5 +1,6 @@
 <?php
-include_once '../common/choujiangModel.php';
+require '../vendor/autoload.php';
+use common\choujiangModel;
 /**
  * 0  没有资格
  * 1  提交成功

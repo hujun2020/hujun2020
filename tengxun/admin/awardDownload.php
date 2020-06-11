@@ -1,6 +1,7 @@
 <?php
-include_once 'downloadTools.php';
-include_once '../common/choujiangModel.php';
+require '../vendor/autoload.php';
+use common\choujiangModel;
+use common\downloadTools;
 
 $fileName='获奖记录.csv';
 $columns=['ID','手机号','奖品','获得时间'];

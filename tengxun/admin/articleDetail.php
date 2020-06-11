@@ -1,5 +1,6 @@
 <?php
-include_once '../common/articleModel.php';
+require '../vendor/autoload.php';
+use common\articleModel;
 $id=$_GET['id'];
 
 $article=new articleModel();

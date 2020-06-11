@@ -1,5 +1,5 @@
 <?php
-
+namespace common;
 class Validate {
 
     //验证码

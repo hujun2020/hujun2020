@@ -1,6 +1,7 @@
 <?php
-require_once '../common/articleModel.php';
-require_once '../common/ajaxPage.php';
+require '../vendor/autoload.php';
+use common\ajaxPage;
+use common\articleModel;
 
 $article=new articleModel();
 $pageSize=20;

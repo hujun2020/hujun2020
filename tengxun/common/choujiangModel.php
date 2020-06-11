@@ -1,6 +1,7 @@
 <?php
-include_once 'db.php';
-include_once 'redisUntil.php';
+namespace common;
+use common\db;
+use common\redisUntil;
 class choujiangModel{
     protected $db;
     protected $redis;

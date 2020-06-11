@@ -1,4 +1,5 @@
 <?php
+namespace common;
 /**
  * redis操作类
  * 说明，任何为false的串，存在redis中都是空串。
@@ -46,7 +47,7 @@ class redisUntil
     {
         $config=$config?$config:$this->config;
         $this->attr        =    array_merge($this->attr,$attr);
-        $this->redis    =    new Redis();
+        $this->redis    =    new \Redis();
         $this->port        =    $config['port'] ? $config['port'] : 6379;
         $this->host        =    $config['host'];
         $this->redis->connect($this->host, $this->port, $this->attr['timeout']);
