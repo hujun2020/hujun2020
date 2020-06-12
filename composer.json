@@ -1,0 +1,10 @@
+{
+  "name": "hujun2020/jiugongge",
+  "version": "1.0.0",
+  "type": "project",
+  "description": "九宫格抽奖代码",
+  "keywords": [
+    "php",
+    "九宫格"
+  ]
+}
